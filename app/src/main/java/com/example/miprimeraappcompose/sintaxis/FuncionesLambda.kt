@@ -40,11 +40,12 @@ fun main(){
     println("Ejemplo 3: nombrando el parámentro")
     friends.forEach{ friend -> println("Hi $friend")}
 
-    //Ejemplo filtrando o transformado datos
+    //Ejemplo filtrando (.filter) o transformado datos (.map)
     val numeros = listOf(1,2,3,4,5)
-    var pares = numeros.filter{it % 2 == 0}
+    val dobles = numeros.map { it*2 }
+
     println("Lista completa: $numeros")
-    println("Lista pares: $pares")
+    println("Lista pares: $dobles")
 
     //Ejemplo de uso de lambda para dar instrucciones personalizadas
     myFuncion(friends[0],{println("Hola $it")})
