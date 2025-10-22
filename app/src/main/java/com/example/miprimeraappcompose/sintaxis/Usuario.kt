@@ -9,7 +9,7 @@ class Usuario (
     private val email: String,
     private val DNI: String,
     //Añado la variable amigos que es una lista que puede cambiar
-    private val friends: MutableList<Usuario> = mutableListOf()
+    val friends: MutableList<Usuario> = mutableListOf()
 ) {
 
     //Defino los métodos que aplican a la clase
