@@ -23,45 +23,58 @@ Ejemplos:
 
 fun main(){
 
-    //Puedo crear una variable y asignarle una función aunque no reciba ni haga nada. Esto no da error.
-    val myFunction = fun() {}
-
-    //O puedo asignarle una acción y Lo que ya hicimos con un bucle for se puede hacer con una función lambda que existe en las listas
-    //Ejemplo 2
-    println("Ejemplo 2")
-    val saludar = { println("Hola!")}
+    //Ejemplo de lambda
+    println("Ejemplo 1: Asignamos una lambda a un acción")
+    val saludar = {println("Hi!")}
     saludar()
 
-    //Ejemplo 3
-    println("Ejemplo 3")
-    val friends = listOf("Ross", "Monica", "Joey")
+    //Ejemplo de lambda para repetir acciones en listas
 
-    friends.forEach { println("Hi $it") }  //Siempre reciben un parámetro. Si no le pongo nombre se llama 'it'
+    val friends = listOf("Monica", "Ross", "Joey", "Rachel", "Chandler", "Phoebe")
 
-    //Puedo poner nombre al parámetro. Entonces uso -> para indicar donde comienza la función
-    println("Ejemplo 4")
-    friends.forEach { name -> println("Hi $name") }
+    //Si no le pongo nombre al parámetro, toma el valor de it
+    println("Ejemplo 2:  con it")
+    friends.forEach { println("Hola $it") }
 
-    //Ejemplos de pasar una función lambda como un parámetro a una función que he creado yo
-    println("Ejemplo5: Con un parámetro y lambda como argumento entre ()")
-    myLambda("Beatriz",{println(it)})
+    //Si nombro el parámetro
+    println("Ejemplo 3: nombrando el parámentro")
+    friends.forEach{ friend -> println("Hi $friend")}
 
-    println("Ejemplo6: Con dos parámetros y lambda como argumento entre ()")
-    myLambda2("Beatriz","Diaz", {fullName -> println(fullName)})
+    //Ejemplo filtrando o transformado datos
+    val numeros = listOf(1,2,3,4,5)
+    var pares = numeros.filter{it % 2 == 0}
+    println("Lista completa: $numeros")
+    println("Lista pares: $pares")
 
+    //Ejemplo de uso de lambda para dar instrucciones personalizadas
+    myFuncion(friends[0],{println("Hola $it")})
+
+    //Lo mismo que usando trailing lambda
+    myFuncion(friends[1]){println("Hola $it")}
+
+    //Lo mismo que usando trailing lambda y nombrando el parámentro
+    myFuncion(friends[2]){friend -> println("Hola $friend")}
+
+    //Instrucciones personalizadas con más de un parámetro: Lambda es un println
+    myFuncion2(friends[0], friends[1]){mensaje -> println(mensaje)  }
+
+    //Instrucciones personalizadas con más de un parámetro: lambda asigna un valor a una variable)
+    var saludo2 = " "
+    myFuncion2(friends[0], friends[1]){mensaje -> saludo2 = mensaje  }
+    println(saludo2)
 }
 
-//Función que reciben una función
-fun myLambda(name: String, saludar: (nombre:String) -> Unit){
-    println("Estoy configurando una función lambda")
-    saludar("Hello $name")
-    println("Estoy saliendo de mi funcion lambda")
+fun myFuncion(name: String, accion:(nombre:String)->Unit) {
+    println("Ejemplo4: estoy usando una lambda como parámetro")
+    accion(name)
+    println("Fin de ejecución de la lambda")
 }
 
-fun myLambda2( name: String,lastName: String, saludar:(fullName: String)->Unit){
-    println("Estoy configurando una función lambda2")
-    saludar("$name $lastName")
-    println("Estoy saliendo de mi funcion lambda2")
+//Función con dos parámetros
+fun myFuncion2(name1:String, name2: String, saludo:(mensaje:String) -> Unit){
+    println("Ejemplo4: estoy usando una lambda como parámetro con dos parámetros")
+    saludo("Hello $name1, Hello $name2")
+    println("Fin de ejecución de la lambda con dos parámetros")
 }
 
 
