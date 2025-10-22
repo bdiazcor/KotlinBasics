@@ -10,7 +10,7 @@ fun main(){
     //println(friends.last())
     //println(friends.size)
 
-    //friends[0]="Juan" //Da error porque esta forma de acceder a los elementos es solamente una get
+    //friends[0]="Juan" //Da error porque solo se permite en lista mutables. Equivale a un set
 
     //GET: Función get ("Getter" de valores). Ambos comandos abajo
     //println(friends[0])
