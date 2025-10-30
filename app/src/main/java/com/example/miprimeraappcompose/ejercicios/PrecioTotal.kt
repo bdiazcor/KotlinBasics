@@ -25,6 +25,6 @@ fun main(){
 }
 
 fun precioTotal(precio: Float,IVA:Int): Float{
-    var precioTotal = precio + (precio * IVA/100)
+    val precioTotal = precio + (precio * IVA/100)
     return precioTotal
 }
