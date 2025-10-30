@@ -4,7 +4,7 @@ package com.example.miprimeraappcompose.ejercicios
 sus respectivos precios usando un Map. Luego, muestra todos los productos y precios.
 A continuación, pide al usuario que ingrese el nombre de un producto, y si existe,
 muestra su precio. Si no existe, muestra un mensaje indicando que el producto no fue encontrado.
-Para que el usuario ingrese los datos utiliza la función readLine().
+Para que el usuario ingrese los datos utiliza la función readln().
  */
 
 fun main(){
@@ -16,7 +16,7 @@ fun main(){
     )
 
     println("Introduce un producto")
-    var producto = readln()
+    val producto = readln()
 
     if (productos?.get(producto) == null){
         println("El producto no fue encontrado")

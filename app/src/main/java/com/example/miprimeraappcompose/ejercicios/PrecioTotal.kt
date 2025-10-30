@@ -9,11 +9,7 @@ imprime el resultado:
 */
 
 fun main(){
-    var precio: Float
-    var IVA: Int
     var precioTotal: Float
-    val precioPan: Float
-    val precioGasoil: Float
 
     //Precio del pan
     precioTotal = precioTotal(0.6f,0)
